@@ -1,13 +1,139 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Сургут</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Сургут — Lorem Landing</title>
+<link rel="stylesheet" href="landing.css">
 </head>
-<header></header>
 <body>
-    
+
+<div class="snow" id="snow"></div>
+
+<!-- ===== MENU ===== -->
+<header class="menu">
+  <div class="menu-inner">
+    <div class="logo">СУРГУТ</div>
+    <button class="burger" id="burger">☰</button>
+    <nav id="nav">
+      <a href="#hero">Lorem</a>
+      <a href="#history">Ipsum</a>
+      <a href="#places">Dolor</a>
+      <a href="#about">Amet</a>
+      <a href="./Slots/slot_machine.html">Consectetur</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="hero">
+  <div class="hero-card">
+    <div class="gerb-plug">ГЕРБ<br>.GIF</div>
+    <h1>Lorem Ipsum Dolor Sit</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sigma sigma sit
+       amet, xdxd consectetur. Lorem ipsum dolor sit amet sigma.</p>
+  </div>
+</section>
+
+<!-- ===== DIVIDER ===== -->
+<div class="divider">
+  Lorem ipsum dolor sit amet — consectetur adipiscing elit xdxd
+</div>
+
+<!-- ===== HISTORY TIMELINE ===== -->
+<section class="section" id="history">
+  <div class="wrap">
+    <p class="section-intro reveal">Lorem ipsum dolor sit amet, consectetur
+      adipiscing elit. Наведи на кружочки — они увеличиваются и показывают
+      ключевые события (lorem ipsum).</p>
+
+    <div class="timeline">
+      <svg class="links" id="links" preserveAspectRatio="none"></svg>
+
+      <div class="node left reveal">
+        <div class="dot">Фото<br>1</div>
+        <div class="event"><b>Lorem 1147</b>Lorem ipsum dolor sit amet,
+          consectetur adipiscing elit sed do eiusmod.</div>
+      </div>
+
+      <div class="node right reveal">
+        <div class="dot">Фото<br>2</div>
+        <div class="event"><b>Ipsum 1594</b>Tempor incididunt ut labore et
+          dolore magna aliqua ut enim ad minim.</div>
+      </div>
+
+      <div class="node left reveal">
+        <div class="dot">Фото<br>3</div>
+        <div class="event"><b>Dolor 1965</b>Quis nostrud exercitation ullamco
+          laboris nisi ut aliquip ex ea commodo.</div>
+      </div>
+
+      <div class="node right reveal">
+        <div class="dot">Фото<br>4</div>
+        <div class="event"><b>Amet 2026</b>Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PLACES CAROUSEL ===== -->
+<section class="section" id="places">
+  <div class="wrap">
+    <h2 class="reveal">Lorem — карусель с интересными местами</h2>
+    <p class="section-intro reveal">Consectetur adipiscing elit, sed do
+      eiusmod tempor incididunt ut labore.</p>
+
+    <div class="carousel-wrap reveal">
+      <button class="carousel-btn prev" id="cPrev" aria-label="prev">‹</button>
+      <div class="carousel" id="carousel">
+        <div class="place"><div class="circle">Место 1</div><div class="cap">Lorem</div></div>
+        <div class="place"><div class="circle">Место 2</div><div class="cap">Ipsum</div></div>
+        <div class="place"><div class="circle">Место 3</div><div class="cap">Dolor</div></div>
+        <div class="place"><div class="circle">Место 4</div><div class="cap">Sit</div></div>
+        <div class="place"><div class="circle">Место 5</div><div class="cap">Amet</div></div>
+        <div class="place"><div class="circle">Место 6</div><div class="cap">Elit</div></div>
+        <div class="place"><div class="circle">Место 7</div><div class="cap">Sed</div></div>
+      </div>
+      <button class="carousel-btn next" id="cNext" aria-label="next">›</button>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TWO PHOTOS + TEXT ===== -->
+<section class="section" id="about">
+  <div class="wrap">
+    <div class="duo">
+      <div class="col reveal">
+        <div class="photo-plug">Фото карусели сверху</div>
+        <div class="text-block">
+          <h3>Lorem Ipsum</h3>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ут
+          уыуыуыуы dolor sit.
+        </div>
+      </div>
+      <div class="col reveal">
+        <div class="photo-plug">Фото карусели сверху</div>
+        <div class="text-block">
+          <h3>Dolor Amet</h3>
+          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+          nisi ut aliquip ex ea commodo consequat. Уыуыуыуы duis aute irure.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<div class="cta reveal">
+  <a class="btn" href="index.html">Lorem — к автомату</a>
+</div>
+
+<footer>
+  Lorem ipsum landing · Неофициальный фан-проект о городе Сургут
+</footer>
+
+<script src="landing.js"></script>
 </body>
-<footer></footer>
 </html>
