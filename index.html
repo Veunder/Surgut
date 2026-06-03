@@ -87,39 +87,33 @@
     <div class="carousel-wrap reveal">
       <button class="carousel-btn prev" id="cPrev" aria-label="prev">‹</button>
       <div class="carousel" id="carousel">
-        <div class="place"><div class="circle">Место 1</div><div class="cap">Lorem</div></div>
-        <div class="place"><div class="circle">Место 2</div><div class="cap">Ipsum</div></div>
-        <div class="place"><div class="circle">Место 3</div><div class="cap">Dolor</div></div>
-        <div class="place"><div class="circle">Место 4</div><div class="cap">Sit</div></div>
-        <div class="place"><div class="circle">Место 5</div><div class="cap">Amet</div></div>
-        <div class="place"><div class="circle">Место 6</div><div class="cap">Elit</div></div>
-        <div class="place"><div class="circle">Место 7</div><div class="cap">Sed</div></div>
+        <div class="place" data-title="Место 1 — Lorem" data-text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."><div class="circle">Место 1</div><div class="cap">Lorem</div></div>
+        <div class="place" data-title="Место 2 — Ipsum" data-text="Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute."><div class="circle">Место 2</div><div class="cap">Ipsum</div></div>
+        <div class="place" data-title="Место 3 — Dolor" data-text="Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint."><div class="circle">Место 3</div><div class="cap">Dolor</div></div>
+        <div class="place" data-title="Место 4 — Sit" data-text="Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum lorem."><div class="circle">Место 4</div><div class="cap">Sit</div></div>
+        <div class="place" data-title="Место 5 — Amet" data-text="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam."><div class="circle">Место 5</div><div class="cap">Amet</div></div>
+        <div class="place" data-title="Место 6 — Elit" data-text="Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur magni dolores eos."><div class="circle">Место 6</div><div class="cap">Elit</div></div>
+        <div class="place" data-title="Место 7 — Sed" data-text="Neque porro quisquam est qui dolorem ipsum quia dolor sit amet consectetur adipisci velit sed quia non numquam eius."><div class="circle">Место 7</div><div class="cap">Sed</div></div>
       </div>
       <button class="carousel-btn next" id="cNext" aria-label="next">›</button>
     </div>
   </div>
 </section>
 
-<!-- ===== TWO PHOTOS + TEXT ===== -->
+<!-- ===== ABOUT CHOSEN PLACE ===== -->
 <section class="section" id="about">
   <div class="wrap">
-    <div class="duo">
-      <div class="col reveal">
-        <div class="photo-plug">Фото карусели сверху</div>
-        <div class="text-block">
-          <h3>Lorem Ipsum</h3>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ут
-          уыуыуыуы dolor sit.
-        </div>
-      </div>
-      <div class="col reveal">
-        <div class="photo-plug">Фото карусели сверху</div>
-        <div class="text-block">
-          <h3>Dolor Amet</h3>
-          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-          nisi ut aliquip ex ea commodo consequat. Уыуыуыуы duis aute irure.
-        </div>
+    <h2 class="reveal">Lorem — о выбранном месте</h2>
+    <p class="section-intro reveal">Нажми на кружочек в карусели выше — здесь
+      появится информация о выбранном месте.</p>
+
+    <div class="about-panel reveal" id="aboutPanel">
+      <div class="about-photo" id="aboutPhoto">Фото места</div>
+      <div class="about-text">
+        <h3 id="aboutTitle">Выберите место</h3>
+        <p id="aboutBody">Lorem ipsum dolor sit amet, consectetur adipiscing
+          elit. Нажмите на любой кружочек в карусели, чтобы увидеть подробности
+          о выбранном месте Сургута.</p>
       </div>
     </div>
   </div>
@@ -127,7 +121,7 @@
 
 <!-- ===== CTA ===== -->
 <div class="cta reveal">
-  <a class="btn" href="index.html">Lorem — к автомату</a>
+  <a class="btn" href="./Slots/slot_machine.html">Lorem — к автомату</a>
 </div>
 
 <footer>
