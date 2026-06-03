@@ -1,0 +1,123 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Сургут — жемчужина Югры</title>
+<link rel="stylesheet" href="landing.css">
+</head>
+<body>
+
+<div class="snow" id="snow"></div>
+
+<!-- ===== MENU ===== -->
+<header class="menu">
+  <div class="menu-inner">
+    <div class="logo">СУРГУТ</div>
+    <button class="burger" id="burger">☰</button>
+    <nav id="nav">
+      <a href="#hero">Главная</a>
+      <a href="#history">История</a>
+      <a href="#places">Достопримечательности</a>
+      <a href="#about">О городе</a>
+      <a href="./Slots/slot_machine.html">Игровой автомат</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="hero">
+  <div class="hero-card">
+    <div class="gerb-plug" style="background-image: url('grb.png'); background-size: cover; background-position: center; background-repeat: no-repeat;"></div>
+    <h1>Сургут — энергия Сибири</h1>
+    <p>Сургут — один из крупнейших городов России, расположенный в сердце Ханты-Мансийского автономного округа — Югры. Это город невероятной энергетики, нефтяная столица России и место, где современные технологии гармонично сочетаются с суровой сибирской природой.</p>
+  </div>
+</section>
+
+<!-- ===== DIVIDER ===== -->
+<div class="divider">
+  Сургут основан в 1594 году — один из старейших городов Сибири
+</div>
+
+<!-- ===== HISTORY TIMELINE ===== -->
+<section class="section" id="history">
+  <div class="wrap">
+    <p class="section-intro reveal">История Сургута насчитывает более 400 лет. Город прошёл путь от небольшого острога до современного мегаполиса — нефтяной столицы России. Наведи на кружочки — они увеличиваются и показывают ключевые события истории города.</p>
+
+    <div class="timeline">
+      <svg class="links" id="links" preserveAspectRatio="none"></svg>
+
+      <div class="node left reveal">
+        <div class="dot" style="background-image: url('1147.png'); background-size: cover; background-position: center; background-repeat: no-repeat;"></div>
+        <div class="event"><b>1594 — Основание Сургута</b>По указу царя Фёдора Иоанновича воеводы Фёдор Барятинский и Владимир Оничков основали Сургутский острог. Город стал важным форпостом России в освоении Сибири.</div>
+      </div>
+
+      <div class="node right reveal">
+        <div class="dot" style="background-image: url('1600.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;"></div>
+        <div class="event"><b>1960-е — Нефтяная эра</b>Открытие крупнейших месторождений нефти и газа в Сургутском районе. Город переживает бурный рост, сюда едут специалисты со всего СССР.</div>
+      </div>
+
+      <div class="node left reveal">
+        <div class="dot" style="background-image: url('1965.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;"></div>
+        <div class="event"><b>1980-е — Расцвет промышленности</b>Строительство Сургутской ГРЭС-1 и ГРЭС-2 — крупнейших в мире тепловых электростанций. Сургут становится энергетическим сердцем Сибири.</div>
+      </div>
+
+      <div class="node right reveal">
+        <div class="dot" style="background-image: url('2026.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;"></div>
+        <div class="event"><b>Современный Сургут</b>Сегодня Сургут — современный мегаполис с населением более 400 000 человек. Город-труженик, город-энергия, один из экономических центров России.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PLACES CAROUSEL ===== -->
+<section class="section" id="places">
+  <div class="wrap">
+    <h2 class="reveal">Достопримечательности Сургута</h2>
+    <p class="section-intro reveal">Что посмотреть в городе? Нажми на кружочек, чтобы узнать подробности о каждой достопримечательности.</p>
+
+    <div class="carousel-wrap reveal">
+      <button class="carousel-btn prev" id="cPrev" aria-label="prev">‹</button>
+      <div class="carousel" id="carousel">
+        <div class="place" data-title="Памятник основателям Сургута" data-text="Величественный монумент, установленный в честь воевод Фёдора Барятинского и Владимира Оничкова. Расположен на набережной Оби и является одним из главных символов города. Отсюда открывается потрясающий вид на реку. Памятник был открыт в 1994 году в честь 400-летия Сургута." data-image="d1.jpg"><div class="circle" style="background-image: url('d1.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;"></div><div class="cap">Памятник основателям</div></div>
+        <div class="place" data-title="Храм Преображения Господня" data-text="Один из самых красивых храмов Югры. Построен в начале 2000-х годов в неорусском стиле. Величественные золотые купола видны из любой точки города. Внутри — уникальные иконы и уютная атмосфера. Храм является духовным центром всего Сургутского района." data-image="d2.jpg"><div class="circle" style="background-image: url('d2.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;"></div><div class="cap">Храм Преображения</div></div>
+        <div class="place" data-title="Сургутская ГРЭС-2" data-text="Сургутская ГРЭС-2 — крупнейшая тепловая электростанция в мире. Её мощность составляет 5600 МВт. Это настоящее сердце энергетики всей Западной Сибири. Ночью станция выглядит как космический корабль — тысячи огней освещают горизонт. ГРЭС-2 является градообразующим предприятием." data-image="d3.jpg"><div class="circle" style="background-image: url('d3.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;"></div><div class="cap">Сургутская ГРЭС-2</div></div>
+        <div class="place" data-title="Фонтан «Сибирь»" data-text="Один из самых красивых и больших фонтанов в Сургуте. Расположен в центре города на площади Советов. В вечернее время включается красочная подсветка, а струи воды достигают 20 метров в высоту. Фонтан стал любимым местом отдыха горожан и туристов." data-image="d4.jpg"><div class="circle" style="background-image: url('d4.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;"></div><div class="cap">Фонтан «Сибирь»</div></div>
+        <div class="place" data-title="Памятник Водяному" data-text="Уникальная скульптура, посвящённая мифическому хозяину рек и озёр. Памятник расположен на набережной Оби и изображает добродушного Водяного, сидящего на камне с трубкой. Согласно местной легенде, если потереть ему нос — весь год будет удача и благополучие." data-image="d5.jpg"><div class="circle" style="background-image: url('d5.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;"></div><div class="cap">Памятник Водяному</div></div>
+        <div class="place" data-title="Вантовый мост через Обь" data-text="Вантовый мост через реку Обь — один из самых длинных в Сибири. Его длина составляет более 2 километров. Мост соединяет два берега великой реки и является символом Сургута. Построен в 2000 году и до сих пор впечатляет своими размерами и инженерным решением. Это единственный вантовый мост через Обь." data-image="d6.jpg"><div class="circle" style="background-image: url('d6.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;"></div><div class="cap">Вантовый мост</div></div>
+        <div class="place" data-title="Памятник Соболю" data-text="Символ богатства сибирской тайги — скульптура соболя, установленная в центре Сургута. Соболь изображён сидящим на ветке кедра. Этот зверёк имеет огромное значение для истории Сибири — именно пушнина и соболиные меха привлекали первых землепроходцев. Памятник стал одним из самых узнаваемых символов города." data-image="d7.jpg"><div class="circle" style="background-image: url('d7.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;"></div><div class="cap">Памятник Соболю</div></div>
+      </div>
+      <button class="carousel-btn next" id="cNext" aria-label="next">›</button>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ABOUT CHOSEN PLACE ===== -->
+<section class="section" id="about">
+  <div class="wrap">
+    <h2 class="reveal">Подробнее о достопримечательности</h2>
+    <p class="section-intro reveal">Нажми на любой кружочек в карусели выше — здесь появится полная информация и фото выбранного места.</p>
+
+    <div class="about-panel reveal" id="aboutPanel">
+      <div class="about-photo" id="aboutPhoto" style="background-image: url('d1.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;"></div>
+      <div class="about-text">
+        <h3 id="aboutTitle">Добро пожаловать в Сургут!</h3>
+        <p id="aboutBody">Сургут — это город-труженик, город-энергия. Нажмите на любой кружочек в карусели, чтобы узнать о достопримечательностях этого удивительного сибирского города. Вы увидите фотографии и интересные факты о каждом месте.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<div class="cta reveal">
+  <a class="btn" href="./Slots/slot_machine.html">Попробуй удачу в игровом автомате</a>
+</div>
+
+<footer>
+  © Сургут — нефтяная столица России | Неофициальный информационный проект о городе Сургут | Все факты проверены
+</footer>
+
+<script src="landing.js"></script>
+</body>
+</html>
