@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, maximum-scale=2.0">
+    <title>Сургут • Финита ля комедия • Вы дошли</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #102236;
+            font-family: 'Times New Roman', 'Georgia', 'Literata', serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 2rem;
+            color: #d9d0bc;
+            position: relative;
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                radial-gradient(circle at 25% 35%, rgba(184, 134, 11, 0.12) 0%, transparent 55%),
+                radial-gradient(circle at 75% 70%, rgba(39, 65, 90, 0.4) 0%, transparent 60%),
+                repeating-linear-gradient(45deg, rgba(22, 49, 76, 0.5) 0px, rgba(22, 49, 76, 0.5) 2px, transparent 2px, transparent 8px);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* ===== СНЕГОПАД ===== */
+        .snowfall {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .snowflake {
+            position: absolute;
+            top: -10px;
+            color: #ffffff;
+            font-size: 1rem;
+            user-select: none;
+            filter: drop-shadow(0 0 6px rgba(184, 134, 11, 0.4));
+            animation: fall linear infinite;
+            opacity: 0.75;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-10px) rotate(0deg);
+                opacity: 0.8;
+            }
+            10% {
+                opacity: 0.9;
+            }
+            90% {
+                opacity: 0.5;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .snowflake:nth-child(odd) {
+            animation: fallOdd linear infinite;
+        }
+
+        .snowflake:nth-child(even) {
+            animation: fallEven linear infinite;
+        }
+
+        @keyframes fallOdd {
+            0% {
+                transform: translateY(-10px) translateX(0px) rotate(0deg);
+                opacity: 0.8;
+            }
+            25% {
+                transform: translateY(25vh) translateX(20px) rotate(90deg);
+                opacity: 0.9;
+            }
+            50% {
+                transform: translateY(50vh) translateX(-15px) rotate(180deg);
+                opacity: 0.7;
+            }
+            75% {
+                transform: translateY(75vh) translateX(25px) rotate(270deg);
+                opacity: 0.5;
+            }
+            100% {
+                transform: translateY(100vh) translateX(-10px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes fallEven {
+            0% {
+                transform: translateY(-10px) translateX(0px) rotate(0deg);
+                opacity: 0.7;
+            }
+            25% {
+                transform: translateY(25vh) translateX(-25px) rotate(-90deg);
+                opacity: 0.9;
+            }
+            50% {
+                transform: translateY(50vh) translateX(18px) rotate(-180deg);
+                opacity: 0.6;
+            }
+            75% {
+                transform: translateY(75vh) translateX(-20px) rotate(-270deg);
+                opacity: 0.5;
+            }
+            100% {
+                transform: translateY(100vh) translateX(12px) rotate(-360deg);
+                opacity: 0;
+            }
+        }
+
+        .terminal-manifest {
+            position: relative;
+            z-index: 2;
+            max-width: 960px;
+            width: 100%;
+            background: rgba(16, 34, 54, 0.9);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border: 2px solid #B8860B;
+            box-shadow: 0 35px 70px rgba(0, 0, 0, 0.8), inset 0 0 50px rgba(184, 134, 11, 0.08);
+            padding: 3.5rem 2.5rem;
+            border-radius: 4px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .seal {
+            width: 110px;
+            height: 110px;
+            background: #16314C;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.8), inset 0 -6px 0 rgba(0, 0, 0, 0.5);
+            border: 3px solid #B8860B;
+            color: #f7efd2;
+            font-weight: bold;
+            font-size: 3.8rem;
+            line-height: 1;
+            text-shadow: 2px 2px 0 #0b1a2a;
+            background: radial-gradient(circle at 30% 30%, #27415A, #102236);
+            font-family: 'Times New Roman', serif;
+            letter-spacing: 2px;
+        }
+
+        h1 {
+            font-size: 3.2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 10px;
+            color: #B8860B;
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+            text-shadow: 5px 5px 0 #081321;
+            word-break: break-word;
+        }
+
+        .sub-ceremonial {
+            font-size: 1.3rem;
+            font-style: italic;
+            color: #c9ad6a;
+            border-top: 2px solid #B8860B;
+            border-bottom: 2px solid #B8860B;
+            display: inline-block;
+            padding: 0.8rem 2.5rem;
+            margin: 1.5rem 0 1.8rem;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            font-weight: 400;
+            background: rgba(16, 34, 54, 0.5);
+        }
+
+        .intro-text {
+            font-size: 1.4rem;
+            font-weight: 500;
+            max-width: 85%;
+            color: #c9c0a8;
+            margin-bottom: 0.3rem;
+            text-shadow: 1px 1px 2px #000;
+        }
+
+        .decree-text {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 1.8rem 0 1rem;
+            color: #f0d99c;
+            letter-spacing: 3px;
+            background: #0e1f30;
+            padding: 0.7rem 2rem;
+            border-left: 10px solid #B8860B;
+            border-right: 10px solid #B8860B;
+            text-transform: uppercase;
+        }
+
+        /* ===== ИНСТАЛЛЯЦИЯ — БЕЗ ФОНА ===== */
+        .installation {
+            position: relative;
+            width: 100%;
+            max-width: 650px;
+            height: 280px;
+            margin: 2.5rem 0 2rem;
+            background: transparent;
+            border: none;
+            box-shadow: none;
+            border-radius: 0;
+            overflow: visible;
+        }
+
+        /* Этикетка инсталляции — без фона */
+        .installation-label {
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #B8860B;
+            font-size: 0.75rem;
+            font-weight: bold;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            padding: 0.25rem 1.2rem;
+            border: 1px solid #B8860B;
+            white-space: nowrap;
+            z-index: 5;
+            background: transparent;
+            text-shadow: 1px 1px 2px #000;
+        }
+
+        /* Пол */
+        .floor {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 35%;
+            background: transparent;
+            border-top: 2px solid #B8860B;
+            opacity: 0.7;
+        }
+
+        /* Диван */
+        .sofa {
+            position: absolute;
+            bottom: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 260px;
+            height: 130px;
+            z-index: 2;
+        }
+
+        .sofa img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: none;
+        }
+
+        /* Капибара на диване */
+        .capybara-on-sofa {
+            position: absolute;
+            bottom: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 80px;
+            z-index: 4;
+        }
+
+        .capybara-on-sofa img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: none;
+        }
+
+        /* Мешок левый */
+        .pouf-left {
+            position: absolute;
+            bottom: 30px;
+            left: 8%;
+            width: 110px;
+            height: 100px;
+            z-index: 2;
+        }
+
+        .pouf-left img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: none;
+        }
+
+        /* Капибара на левом мешке */
+        .capybara-on-pouf-left {
+            position: absolute;
+            bottom: 75px;
+            left: 7%;
+            width: 70px;
+            height: 70px;
+            z-index: 4;
+        }
+
+        .capybara-on-pouf-left img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: none;
+        }
+
+        /* Мешок правый */
+        .pouf-right {
+            position: absolute;
+            bottom: 30px;
+            right: 8%;
+            width: 110px;
+            height: 100px;
+            z-index: 2;
+        }
+
+        .pouf-right img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: none;
+        }
+
+        /* Капибара на правом мешке */
+        .capybara-on-pouf-right {
+            position: absolute;
+            bottom: 75px;
+            right: 7%;
+            width: 70px;
+            height: 70px;
+            z-index: 4;
+        }
+
+        .capybara-on-pouf-right img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: none;
+        }
+
+        /* Соболь */
+        .sable-guard {
+            position: absolute;
+            bottom: 35px;
+            left: 30%;
+            transform: translateX(-50%);
+            width: 65px;
+            height: 65px;
+            z-index: 5;
+        }
+
+        .sable-guard img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: none;
+        }
+
+        /* Табличка внизу инсталляции */
+        .installation-plaque {
+            position: absolute;
+            bottom: -28px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #102236;
+            color: #d4bd7a;
+            font-size: 0.7rem;
+            font-weight: bold;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            padding: 0.2rem 1.5rem;
+            border: 1px solid #B8860B;
+            white-space: nowrap;
+            z-index: 5;
+        }
+
+        .serious-tag {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #B8860B;
+            margin: 1.2rem 0 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            text-shadow: 2px 2px 0 #050d16;
+        }
+
+        .description-text {
+            font-style: italic;
+            color: #b9ae8f;
+            max-width: 85%;
+            line-height: 1.7;
+            margin: 0.5rem 0 1rem;
+        }
+
+        .final-statement {
+            font-size: 2.1rem;
+            font-weight: 700;
+            margin-top: 2.2rem;
+            color: #B8860B;
+            text-shadow: 0 0 20px rgba(0, 0, 0, 0.9);
+            border-bottom: 4px double #B8860B;
+            padding-bottom: 0.8rem;
+            width: 100%;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+        }
+
+        .holy-mantra {
+            margin-top: 2rem;
+            font-size: 1.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: #f1de9c;
+            text-shadow: 3px 3px 0 #07121e;
+            background: #0d1b2b;
+            padding: 1.2rem 2rem;
+            border: 2px solid #B8860B;
+            width: 100%;
+            line-height: 1.4;
+            word-break: break-word;
+            box-shadow: inset 0 0 15px rgba(184, 134, 11, 0.1);
+        }
+
+        .coordinates {
+            margin-top: 2rem;
+            font-family: 'Courier New', monospace;
+            font-size: 1.2rem;
+            color: #8a9fb3;
+            background: #0c1a28;
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            letter-spacing: 2px;
+            border: 1px solid #27415A;
+        }
+
+        .warning {
+            margin-top: 1.8rem;
+            font-size: 0.9rem;
+            color: #7a8fa3;
+            font-style: italic;
+            border: 1px dashed #27415A;
+            padding: 0.7rem 2rem;
+            background: #0e1d2e;
+        }
+
+        @media (max-width: 650px) {
+            body {
+                padding: 1rem;
+            }
+            .terminal-manifest {
+                padding: 2rem 1.2rem;
+            }
+            h1 {
+                font-size: 2.2rem;
+                letter-spacing: 6px;
+            }
+            .installation {
+                height: 240px;
+            }
+            .sofa {
+                width: 200px;
+                height: 100px;
+                bottom: 20px;
+            }
+            .capybara-on-sofa {
+                width: 60px;
+                height: 60px;
+                bottom: 75px;
+            }
+            .pouf-left,
+            .pouf-right {
+                width: 85px;
+                height: 75px;
+                bottom: 25px;
+            }
+            .capybara-on-pouf-left,
+            .capybara-on-pouf-right {
+                width: 55px;
+                height: 55px;
+                bottom: 60px;
+            }
+            .sable-guard {
+                width: 50px;
+                height: 50px;
+                bottom: 28px;
+                left: 28%;
+            }
+            .holy-mantra {
+                font-size: 1.4rem;
+                letter-spacing: 2px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="snowfall" id="snowfall" aria-hidden="true"></div>
+
+    <main class="terminal-manifest">
+        <div class="seal">⚜️</div>
+
+        <h1>Сургут</h1>
+        <div class="sub-ceremonial">• terminus est •</div>
+
+        <p class="intro-text">
+            ВЫ ДОШЛИ ДО КОНЦА САЙТА.<br>ЭТО НЕ ФИНАЛ, А АКТ ВЫСОЧАЙШЕЙ ГОСУДАРСТВЕННОЙ ВАЖНОСТИ.
+        </p>
+
+        <div class="decree-text">
+            ⚡ ПРОТОКОЛ № 86/СУРГУТ-КОНЕЦ ⚡
+        </div>
+
+        <!-- ИНСТАЛЛЯЦИЯ БЕЗ ФОНА И ТЕНЕЙ -->
+        <div class="installation">
+            <div class="installation-label">🏛️ священная инсталляция 🏛️</div>
+
+            <div class="floor"></div>
+
+            <div class="sofa">
+                <img src="d.avif" alt="Диван" loading="lazy">
+            </div>
+
+            <div class="capybara-on-sofa">
+                <img src="c.gif" alt="Капибара на диване" loading="lazy">
+            </div>
+
+            <div class="pouf-left">
+                <img src="m.png" alt="Мешок" loading="lazy">
+            </div>
+
+            <div class="capybara-on-pouf-left">
+                <img src="c.gif" alt="Капибара на мешке" loading="lazy">
+            </div>
+
+            <div class="pouf-right">
+                <img src="m.png" alt="Мешок" loading="lazy">
+            </div>
+
+            <div class="capybara-on-pouf-right">
+                <img src="c.gif" alt="Капибара на мешке" loading="lazy">
+            </div>
+
+            <div class="sable-guard">
+                <img src="w.gif" alt="Соболь" loading="lazy">
+            </div>
+
+            <div class="installation-plaque">сутлья-пуфики • диван • соболь • капибары</div>
+        </div>
+
+        <div class="serious-tag">
+            • всё предельно серьёзно •
+        </div>
+
+        <p class="description-text">
+            Данная страница удостоверяет: вы проследовали через весь информационный массив города Сургута.
+            Сутлья-пуфики с капибарами утверждены, соболь несёт дозор у дивана. Дальше — только величие Обь-Иртышья.
+        </p>
+
+        <div class="final-statement">
+            🏛️ ДОШЁЛ ДО КОНЦА 🏛️
+        </div>
+
+        <div class="holy-mantra">
+            🙏 ВО ИМЯ И ВО СЛАВУ ЕМУ ВЕЛИКОМУ СУРГУТУ, БОЖЕ ХРОНИ СУРГУТ 🙏
+        </div>
+
+        <div class="coordinates">
+            ◈ 61°15′ с.ш. 73°26′ в.д. ◈ СУРГУТ • ОФИЦИАЛЬНО ◈
+        </div>
+
+        <div class="warning">
+            ⚠️ КОНЕЦ САЙТА ЗАСВИДЕТЕЛЬСТВОВАН. ВСЕ ПУФИКИ, СОБОЛЬ И КАПИБАРА НА МЕСТЕ. ВОЗВРАТ НА ГЛАВНУЮ НЕВОЗМОЖЕН БЕЗ ОСОЗНАНИЯ ВАЖНОСТИ ПРОИЗОШЕДШЕГО.
+        </div>
+    </main>
+
+    <script>
+        (function() {
+            const snowfallContainer = document.getElementById('snowfall');
+            const snowflakeSymbols = ['❄', '❅', '❆', '✦', '•', '·', '❋', '✧'];
+            const numberOfSnowflakes = 55;
+
+            function createSnowflake() {
+                const snowflake = document.createElement('span');
+                snowflake.classList.add('snowflake');
+                snowflake.textContent = snowflakeSymbols[Math.floor(Math.random() * snowflakeSymbols.length)];
+
+                const size = Math.random() * 1.4 + 0.7;
+                snowflake.style.fontSize = size + 'rem';
+
+                snowflake.style.left = Math.random() * 100 + '%';
+
+                const duration = Math.random() * 8 + 9;
+                snowflake.style.animationDuration = duration + 's';
+
+                const delay = Math.random() * 10;
+                snowflake.style.animationDelay = delay + 's';
+
+                snowflake.style.opacity = Math.random() * 0.6 + 0.3;
+
+                snowfallContainer.appendChild(snowflake);
+
+                snowflake.addEventListener('animationend', function() {
+                    snowflake.remove();
+                    createSnowflake();
+                });
+            }
+
+            for (let i = 0; i < numberOfSnowflakes; i++) {
+                setTimeout(() => {
+                    createSnowflake();
+                }, i * 180);
+            }
+        })();
+    </script>
+
+</body>
+</html>
