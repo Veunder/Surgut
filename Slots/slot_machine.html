@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Сургут — Мем-автомат</title>
+<link rel="stylesheet" href="./slotstyle.css">
+</head>
+<body>
+
+<div class="snow" id="snow"></div>
+<canvas id="confetti"></canvas>
+<div class="jackpot-banner" id="jackpotBanner">
+  <div class="jackpot-text">JACKPOT!</div>
+  <div class="jackpot-sub">Три одинаковых мема в ряд — редчайший шанс!</div>
+</div>
+
+<header>
+  <h1><a href="../index.html">СУРГУТ</a></h1>
+  <p>Крути автомат и узнай легенды города на Оби</p>
+</header>
+
+<div class="stage">
+
+  <!-- ===== SLOT MACHINE ===== -->
+  <div class="machine" id="machine">
+    <button class="sound-toggle" id="soundToggle" title="Звук вкл/выкл">🔊</button>
+    <div class="marquee">
+      <span>★</span> МЕМ-АВТОМАТ <span>★</span> СУРГУТ <span>★</span>
+    </div>
+    <div class="reels">
+      <div class="reel"><div class="strip" id="strip0"></div></div>
+      <div class="reel"><div class="strip" id="strip1"></div></div>
+      <div class="reel"><div class="strip" id="strip2"></div></div>
+    </div>
+    <div class="controls">
+      <div class="lever-row">
+        <button class="btn" id="spinBtn">Крутить</button>
+      </div>
+      <div class="hint" id="hint">Нажми «Крутить», чтобы выбить 3 мема</div>
+    </div>
+  </div>
+
+  <!-- ===== CHOOSE ===== -->
+  <div class="choose" id="choose">
+    <h2>Выпало 3 мема — выбери один</h2>
+    <div class="cards" id="cards"></div>
+  </div>
+
+  <!-- ===== RESULT ===== -->
+  <div class="result" id="result">
+    <div class="media" id="media"></div>
+    <h2 id="resTitle"></h2>
+    <div class="tag" id="resTag"></div>
+    <p class="history" id="resHistory"></p>
+    <div class="again">
+      <button class="btn" id="againBtn">Крутить ещё раз</button>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  Неофициальный фан-проект о городе Сургут ·
+</footer>
+<script src="./slotscript.js"></script>
+</body>
+</html>
