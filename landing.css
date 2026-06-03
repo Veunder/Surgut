@@ -105,7 +105,7 @@ body{
   pointer-events:none;z-index:0;
 }
 .timeline .links line{
-  stroke:#3a6285;stroke-width:6;stroke-linecap:round;
+  stroke:#3a6285;stroke-width:3;stroke-linecap:round;
   stroke-dasharray:8 8;
   animation:dash 18s linear infinite;
 }
@@ -152,7 +152,7 @@ body{
 .carousel::-webkit-scrollbar{height:8px;}
 .carousel::-webkit-scrollbar-thumb{background:#2f5377;border-radius:10px;}
 .place{
-  flex:0 0 auto;scroll-snap-align:center;text-align:center;
+  flex:0 0 auto;scroll-snap-align:center;text-align:center;cursor:pointer;
 }
 .place .circle{
   width:140px;height:140px;border-radius:50%;
@@ -160,9 +160,14 @@ body{
   border:4px solid #24486c;margin:0 auto;
   display:flex;align-items:center;justify-content:center;
   color:#555;font-size:.78rem;font-weight:700;
-  transition:transform .25s,border-color .25s;
+  transition:transform .25s,border-color .25s,box-shadow .25s;
 }
-.place:hover .circle{transform:translateY(-8px) scale(1.05);border-color:var(--gold);}
+.place:hover .circle{transform:translateY(-8px) scale(1.05);
+  border-color:var(--gold);box-shadow:0 0 22px rgba(244,196,48,.45);}
+.place.active .circle{
+  border-color:var(--gold);
+  box-shadow:0 0 26px rgba(244,196,48,.7);
+}
 .place .cap{margin-top:10px;color:var(--muted);font-size:.85rem;}
 .carousel-btn{
   position:absolute;top:38%;transform:translateY(-50%);
@@ -174,23 +179,25 @@ body{
 .carousel-btn.prev{left:-6px;}
 .carousel-btn.next{right:-6px;}
 
-/* ---------- two photo cards + text ---------- */
-.duo{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:20px;}
-.duo .col{display:flex;flex-direction:column;gap:16px;}
-.photo-plug{
-  height:170px;border-radius:14px;
+/* ---------- about chosen place ---------- */
+.about-panel{
+  display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:stretch;
+  margin-top:20px;background:var(--panel);border:2px solid var(--gold-dark);
+  border-radius:18px;padding:22px;box-shadow:0 14px 40px rgba(0,0,0,.4);
+}
+.about-photo{
+  min-height:230px;border-radius:14px;
   background:repeating-linear-gradient(45deg,var(--plug),var(--plug) 14px,var(--plug-dark) 14px,var(--plug-dark) 28px);
   border:2px solid #24486c;
   display:flex;align-items:center;justify-content:center;
-  color:#555;font-weight:700;font-size:.9rem;
-  transition:transform .25s,box-shadow .25s;
+  color:#555;font-weight:700;font-size:.95rem;text-align:center;padding:14px;
 }
-.photo-plug:hover{transform:translateY(-6px);box-shadow:0 14px 30px rgba(0,0,0,.45);}
-.text-block{
-  background:var(--panel);border:2px solid #24486c;border-radius:14px;
-  padding:20px;color:var(--text);line-height:1.7;font-size:.98rem;min-height:170px;
-}
-.text-block h3{color:var(--gold);margin-bottom:8px;font-size:1.1rem;}
+.about-text{display:flex;flex-direction:column;justify-content:center;}
+.about-text h3{color:var(--gold);font-size:1.5rem;margin-bottom:12px;}
+.about-text p{color:var(--text);line-height:1.8;font-size:1.02rem;}
+/* мягкое обновление контента */
+.about-panel.swap{animation:swapfade .45s ease;}
+@keyframes swapfade{from{opacity:.25;transform:translateY(10px);}to{opacity:1;transform:none;}}
 
 /* ---------- cta ---------- */
 .cta{text-align:center;padding:40px 0;}
@@ -230,5 +237,5 @@ footer{position:relative;z-index:2;text-align:center;color:var(--muted);
     position:relative;top:auto;transform:none;opacity:1;margin-left:14px;
   }
   .node:hover .dot{transform:scale(1.15);}
-  .duo{grid-template-columns:1fr;}
+  .about-panel{grid-template-columns:1fr;}
 }

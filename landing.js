@@ -43,6 +43,34 @@ document.getElementById('cNext').addEventListener('click',()=>{
   carousel.scrollBy({left:step(),behavior:'smooth'});
 });
 
+/* ---------- выбор места из карусели → секция "о месте" ---------- */
+const aboutPanel=document.getElementById('aboutPanel');
+const aboutPhoto=document.getElementById('aboutPhoto');
+const aboutTitle=document.getElementById('aboutTitle');
+const aboutBody=document.getElementById('aboutBody');
+const places=document.querySelectorAll('.place');
+
+function showPlace(p){
+  const title=p.dataset.title||'Место';
+  const text=p.dataset.text||'Lorem ipsum.';
+  aboutTitle.textContent=title;
+  aboutBody.textContent=text;
+  aboutPhoto.textContent='Фото: '+title;
+  /* подсветка активного кружочка */
+  places.forEach(x=>x.classList.remove('active'));
+  p.classList.add('active');
+  /* мягкая анимация смены контента */
+  aboutPanel.classList.remove('swap');
+  void aboutPanel.offsetWidth;        /* перезапуск анимации */
+  aboutPanel.classList.add('swap');
+  /* прокрутка к секции */
+  document.getElementById('about').scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+places.forEach(p=>{
+  p.addEventListener('click',()=>showPlace(p));
+});
+
 /* ---------- линии, соединяющие кружочки таймлайна ---------- */
 function drawTimelineLinks(){
   const svg=document.getElementById('links');

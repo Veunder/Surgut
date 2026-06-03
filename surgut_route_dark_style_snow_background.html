@@ -57,6 +57,17 @@ body{
     min-height:100vh;
 }
 
+a{
+    text-decoration: none;
+    font-size:2rem;
+    font-weight:800;
+    letter-spacing:.05em;
+    background:linear-gradient(180deg,#fff,var(--ice));
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+}
+
 .app-header{
     position:relative;
     z-index:5;
@@ -323,8 +334,8 @@ footer{
 <header class="app-header">
     <div class="header-container">
         <div class="logo-area">
-            <div class="menu-icon" id="menuTrigger">☰ меню</div>
-            <div class="logo">СУРГУТ<span>✦</span>ТУР</div>
+            <div class="menu-icon" id="menuTrigger">☰ Меню</div>
+            <div class="logo"><a href="index.html">СУРГУТ</a><span>✦</span>ТУР</div>
         </div>
 
         <div class="nav-arrows">
