@@ -1,0 +1,109 @@
+:root{
+  --bg:#0d1b2a;
+  --bg2:#13283f;
+  --gold:#f4c430;
+  --gold-dark:#b8860b;
+  --ice:#7fd4f0;
+  --text:#eaf2f8;
+  --muted:#9bb3c7;
+  --panel:#16314c;
+  --plug:#d4d4d4;
+  --plug-dark:#bdbdbd;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{height:100%;}
+body{
+  font-family:'Segoe UI',Roboto,Arial,sans-serif;
+  background:radial-gradient(circle at 50% 0%,var(--bg2),var(--bg) 70%);
+  color:var(--text);
+  min-height:100vh;
+  overflow-x:hidden;
+}
+
+/* ---------- snow ---------- */
+.snow{position:fixed;inset:0;pointer-events:none;z-index:1;}
+.flake{position:absolute;top:-10px;color:#fff;opacity:.7;
+  animation:fall linear infinite;}
+@keyframes fall{
+  to{transform:translateY(105vh) rotate(360deg);}
+}
+
+/* ---------- header ---------- */
+header{position:relative;z-index:2;text-align:center;padding:42px 20px 8px;}
+header h1{
+  font-size:clamp(2rem,5.5vw,3.6rem);
+  letter-spacing:.06em;
+  text-shadow:0 0 30px rgba(127,212,240,.25);
+  animation:drop .9s cubic-bezier(.2,.9,.3,1.4) both;
+}
+header h1 a{
+  text-decoration:none;display:inline-block;
+  background:linear-gradient(180deg,#fff,var(--ice));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  transition:filter .2s;
+}
+header h1 a:hover{filter:brightness(.78);}
+header p{color:var(--muted);margin-top:6px;font-size:1.05rem;
+  animation:drop 1s .15s cubic-bezier(.2,.9,.3,1.4) both;}
+@keyframes drop{from{opacity:0;transform:translateY(-40px) scale(.9);}to{opacity:1;transform:none;}}
+
+/* ---------- stage ---------- */
+.stage{position:relative;z-index:2;max-width:900px;margin:0 auto;padding:24px 18px 60px;}
+
+/* ---------- блоки секций ---------- */
+.about-block{
+  background:var(--panel);border:2px solid #24486c;border-radius:18px;
+  padding:26px 28px;margin-bottom:22px;
+  animation:fadeUp .6s ease both;
+}
+.about-block:nth-of-type(1){animation-delay:.05s;}
+.about-block:nth-of-type(2){animation-delay:.18s;}
+.about-block:nth-of-type(3){animation-delay:.30s;}
+.about-block h2{
+  color:var(--gold);font-size:1.4rem;margin-bottom:14px;letter-spacing:.03em;
+}
+.about-block p{line-height:1.75;color:var(--text);margin-bottom:12px;font-size:1rem;}
+.about-block p:last-child{margin-bottom:0;}
+
+/* ---------- команда ---------- */
+.team-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;
+}
+.team-card{
+  background:rgba(255,255,255,.03);border:1px solid #24486c;border-radius:14px;
+  padding:18px;text-align:center;
+  transition:transform .25s,border-color .25s;
+}
+.team-card:hover{transform:translateY(-5px);border-color:var(--gold);}
+.photo-plug{
+  width:96px;height:96px;border-radius:50%;margin:0 auto 12px;
+  background:repeating-linear-gradient(45deg,var(--plug),var(--plug) 10px,var(--plug-dark) 10px,var(--plug-dark) 20px);
+  border:3px solid #24486c;
+  display:flex;align-items:center;justify-content:center;
+  color:#555;font-weight:700;font-size:.8rem;
+}
+.team-card h3{color:var(--gold);font-size:1.1rem;margin-bottom:4px;}
+.team-card .role{color:var(--ice);font-size:.85rem;margin-bottom:10px;}
+.team-card .bio{color:var(--text);font-size:.92rem;line-height:1.5;}
+
+/* ---------- контакты ---------- */
+.contacts{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;}
+.contacts li{font-size:1rem;line-height:1.6;}
+.contacts .key{color:var(--gold);font-weight:700;margin-right:8px;}
+.contacts a{color:var(--ice);text-decoration:none;transition:filter .2s;}
+.contacts a:hover{filter:brightness(.85);text-decoration:underline;}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:none;}}
+
+/* ---------- footer ---------- */
+footer{position:relative;z-index:2;text-align:center;color:var(--muted);
+  padding:30px 16px 50px;font-size:.85rem;}
+
+/* ---------- mobile ---------- */
+@media(max-width:560px){
+  header{padding:32px 14px 6px;}
+  .stage{padding:18px 12px 50px;}
+  .about-block{padding:20px;}
+  .about-block h2{font-size:1.2rem;}
+  .team-grid{grid-template-columns:1fr;}
+}

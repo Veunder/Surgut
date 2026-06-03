@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Сургут — Маршруты по городу</title>
+<link rel="stylesheet" href="surgut_map.css">
+<script src="https://api-maps.yandex.ru/2.1/?apikey=90c8e21a-aafb-44a8-a40f-a4188e5fe6c0&lang=ru_RU"></script>
+</head>
+<body>
+
+<div class="snow" id="snow"></div>
+
+<header>
+  <h1><a href="../index.html">СУРГУТ</a></h1>
+  <p>Маршруты по городу на Оби</p>
+</header>
+
+<main class="stage">
+  <div class="route-card">
+
+    <div class="route-header">
+      <h2>📍 Маршрут по Сургуту</h2>
+      <button class="btn btn-green" id="geoRouteBtn">📍 Маршрут от меня до Сургута</button>
+    </div>
+
+    <div class="input-group">
+      <div class="input-field">
+        <label for="startPoint">🚩 Откуда</label>
+        <input type="text" id="startPoint" value="Сургут, улица Ленина 1">
+      </div>
+      <div class="input-field">
+        <label for="endPoint">🏁 Куда</label>
+        <input type="text" id="endPoint" value="Сургут, ТРЦ «Сургут Сити Молл»">
+      </div>
+      <button class="btn" id="buildRouteBtn">🚀 Построить маршрут</button>
+    </div>
+
+    <div class="map-container">
+      <div id="yandexMap"></div>
+    </div>
+
+    <div id="routeDetails" class="route-info">
+      <p>📋 Нажмите «Построить маршрут» или «Маршрут от меня до Сургута».</p>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  Неофициальный фан-проект о городе Сургут · Маршруты на Яндекс.Картах
+</footer>
+
+<script src="surgut_map.js"></script>
+</body>
+</html>
