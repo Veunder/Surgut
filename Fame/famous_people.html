@@ -7,6 +7,8 @@
 <link rel="stylesheet" href="famous_people.css">
 <link rel="stylesheet" href="menu.css">
 <script src="menu.js" defer></script>
+<link rel="stylesheet" href="../menu.css">
+<script src="../menu.js" defer></script>
 </head>
 <body>
 
@@ -14,65 +16,72 @@
 
 <header>
   <h1><a href="../index.html">СУРГУТ</a></h1>
-  <p>Известные люди города</p>
+  <p>Известные люди города · Легенды Севера</p>
 </header>
 
 <main class="stage">
-  <p class="intro">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-    do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 
-  <div class="people-grid">
-    <article class="person-card">
-      <div class="photo-plug">Фото</div>
-      <h3>Lorem Ipsum</h3>
-      <p class="role">Профессия / роль</p>
-      <p class="bio">Ut enim ad minim veniam, quis nostrud exercitation ullamco
-        laboris nisi ut aliquip ex ea commodo consequat.</p>
-    </article>
+  <!-- ===== CAROUSEL CARD ===== -->
+  <section class="people-card">
+    <button class="arrow prev" id="prevBtn" aria-label="Предыдущий">‹</button>
+    <button class="arrow next" id="nextBtn" aria-label="Следующий">›</button>
 
-    <article class="person-card">
-      <div class="photo-plug">Фото</div>
-      <h3>Dolor Sit</h3>
-      <p class="role">Профессия / роль</p>
-      <p class="bio">Duis aute irure dolor in reprehenderit in voluptate velit
-        esse cillum dolore eu fugiat nulla pariatur.</p>
-    </article>
+    <div class="people-grid">
 
-    <article class="person-card">
-      <div class="photo-plug">Фото</div>
-      <h3>Amet Consectetur</h3>
-      <p class="role">Профессия / роль</p>
-      <p class="bio">Excepteur sint occaecat cupidatat non proident, sunt in
-        culpa qui officia deserunt mollit anim id est laborum.</p>
-    </article>
+      <!-- left: photo -->
+      <div class="photo-col">
+        <div class="photo-box">
+          <img id="personImage" alt="Портрет">
+          <div class="photo-plug" id="photoPlug" aria-hidden="true">Фото</div>
+          <div class="photo-overlay"></div>
+          <div class="photo-caption">
+            <h2 id="personName"></h2>
+            <p id="personYears"></p>
+          </div>
+        </div>
+        <div class="counter"><span id="counterCurrent">1</span>/<span id="counterTotal">16</span></div>
+      </div>
 
-    <article class="person-card">
-      <div class="photo-plug">Фото</div>
-      <h3>Adipiscing Elit</h3>
-      <p class="role">Профессия / роль</p>
-      <p class="bio">Sed ut perspiciatis unde omnis iste natus error sit
-        voluptatem accusantium doloremque laudantium totam rem aperiam.</p>
-    </article>
+      <!-- right: text -->
+      <div class="text-col">
+        <div class="text-content" id="textContent">
+          <h3>Биография</h3>
+          <p class="bio-text" id="personText"></p>
+          <div class="detail-info" id="extraInfo"></div>
+        </div>
+        <div class="facts">
+          <div class="fact">🏙️ Основан в 1594 году</div>
+          <div class="fact">🛢️ Нефтяная столица РФ</div>
+          <div class="fact">🏆 Крупнейший город ХМАО</div>
+          <div class="fact">🖤 Символ — чёрный соболь</div>
+        </div>
+      </div>
 
-    <article class="person-card">
-      <div class="photo-plug">Фото</div>
-      <h3>Eiusmod Tempor</h3>
-      <p class="role">Профессия / роль</p>
-      <p class="bio">Nemo enim ipsam voluptatem quia voluptas sit aspernatur
-        aut odit aut fugit sed quia consequuntur magni dolores eos.</p>
-    </article>
+    </div>
+  </section>
 
-    <article class="person-card">
-      <div class="photo-plug">Фото</div>
-      <h3>Incididunt Labore</h3>
-      <p class="role">Профессия / роль</p>
-      <p class="bio">Neque porro quisquam est qui dolorem ipsum quia dolor sit
-        amet consectetur adipisci velit sed quia non numquam eius.</p>
-    </article>
-  </div>
 </main>
+
+<!-- ===== Aviasales-карточка (показывается случайно при клике на стрелку) ===== -->
+<aside id="aviasalesAd" class="ad-banner" aria-hidden="true">
+  <button class="ad-close" id="closeAdBtn" aria-label="Закрыть">✕</button>
+  <a class="ad-link" id="adLink" target="_blank" rel="noopener noreferrer">
+    <div class="ad-plane" aria-hidden="true">
+      <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="32" cy="32" r="30" fill="#1976d2"/>
+        <path d="M48 24 L36 28 L24 18 L20 20 L28 30 L18 34 L14 32 L12 34 L18 38 L22 44 L24 42 L22 38 L32 36 L42 46 L44 42 L36 32 L46 28 Z"
+              fill="#ffffff" stroke="#0a1828" stroke-width="1"/>
+      </svg>
+    </div>
+    <div class="ad-text">
+      <div class="ad-title">Aviasales</div>
+      <div class="ad-slogan">✈️ Найди дешёвый рейс до Сургута</div>
+    </div>
+  </a>
+</aside>
 
 <footer>Неофициальный фан-проект о городе Сургут</footer>
 
+<script src="famous_people.js"></script>
 </body>
 </html>
