@@ -3,12 +3,13 @@
   --bg2:#13283f;
   --gold:#f4c430;
   --gold-dark:#b8860b;
+  --gold-soft:#f0d99c;
   --ice:#7fd4f0;
   --text:#eaf2f8;
   --muted:#9bb3c7;
   --panel:#16314c;
-  --plug:#d4d4d4;
-  --plug-dark:#bdbdbd;
+  --panel2:#27415a;
+  --parchment:#d9d0bc;
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 html,body{height:100%;}
@@ -43,67 +44,194 @@ header h1 a{
   transition:filter .2s;
 }
 header h1 a:hover{filter:brightness(.78);}
-header p{color:var(--muted);margin-top:6px;font-size:1.05rem;
+header p{color:var(--muted);margin-top:6px;font-size:1.05rem;font-style:italic;
   animation:drop 1s .15s cubic-bezier(.2,.9,.3,1.4) both;}
 @keyframes drop{from{opacity:0;transform:translateY(-40px) scale(.9);}to{opacity:1;transform:none;}}
 
-/* ---------- stage ---------- */
-.stage{position:relative;z-index:2;max-width:900px;margin:0 auto;padding:24px 18px 60px;}
+/* ---------- stage / card ---------- */
+.stage{position:relative;z-index:2;max-width:960px;margin:0 auto;
+  padding:24px 18px 60px;}
 
-/* ---------- блоки секций ---------- */
-.about-block{
-  background:var(--panel);border:2px solid #24486c;border-radius:18px;
-  padding:26px 28px;margin-bottom:22px;
-  animation:fadeUp .6s ease both;
+.manifest-card{
+  background:linear-gradient(160deg,#1c3a5a,#0e2236);
+  border:3px solid var(--gold-dark);
+  border-radius:24px;
+  padding:42px 32px 36px;
+  box-shadow:0 20px 60px rgba(0,0,0,.55),inset 0 0 50px rgba(184,134,11,.06);
+  display:flex;flex-direction:column;align-items:center;text-align:center;gap:12px;
+  animation:rise 1s .2s cubic-bezier(.2,.9,.3,1.4) both;
+  position:relative;
 }
-.about-block:nth-of-type(1){animation-delay:.05s;}
-.about-block:nth-of-type(2){animation-delay:.18s;}
-.about-block:nth-of-type(3){animation-delay:.30s;}
-.about-block h2{
-  color:var(--gold);font-size:1.4rem;margin-bottom:14px;letter-spacing:.03em;
-}
-.about-block p{line-height:1.75;color:var(--text);margin-bottom:12px;font-size:1rem;}
-.about-block p:last-child{margin-bottom:0;}
+@keyframes rise{from{opacity:0;transform:translateY(40px) scale(.97);}to{opacity:1;transform:none;}}
 
-/* ---------- команда ---------- */
-.team-grid{
-  display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;
-}
-.team-card{
-  background:rgba(255,255,255,.03);border:1px solid #24486c;border-radius:14px;
-  padding:18px;text-align:center;
-  transition:transform .25s,border-color .25s;
-}
-.team-card:hover{transform:translateY(-5px);border-color:var(--gold);}
-.photo-plug{
-  width:96px;height:96px;border-radius:50%;margin:0 auto 12px;
-  background:repeating-linear-gradient(45deg,var(--plug),var(--plug) 10px,var(--plug-dark) 10px,var(--plug-dark) 20px);
-  border:3px solid #24486c;
+/* ---------- печать ---------- */
+.seal{
+  width:104px;height:104px;border-radius:50%;
+  background:radial-gradient(circle at 30% 30%,var(--panel2),var(--panel));
+  border:3px solid var(--gold-dark);
   display:flex;align-items:center;justify-content:center;
-  color:#555;font-weight:700;font-size:.8rem;
+  color:var(--gold-soft);font-size:3.4rem;line-height:1;
+  text-shadow:2px 2px 0 #0b1a2a;
+  box-shadow:0 12px 30px rgba(0,0,0,.6),inset 0 -6px 0 rgba(0,0,0,.4);
+  animation:sealSpin 1.2s .4s cubic-bezier(.2,.9,.3,1.4) both;
 }
-.team-card h3{color:var(--gold);font-size:1.1rem;margin-bottom:4px;}
-.team-card .role{color:var(--ice);font-size:.85rem;margin-bottom:10px;}
-.team-card .bio{color:var(--text);font-size:.92rem;line-height:1.5;}
+@keyframes sealSpin{from{opacity:0;transform:rotate(-180deg) scale(.4);}to{opacity:1;transform:none;}}
 
-/* ---------- контакты ---------- */
-.contacts{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;}
-.contacts li{font-size:1rem;line-height:1.6;}
-.contacts .key{color:var(--gold);font-weight:700;margin-right:8px;}
-.contacts a{color:var(--ice);text-decoration:none;transition:filter .2s;}
-.contacts a:hover{filter:brightness(.85);text-decoration:underline;}
+/* ---------- церемониальный подзаголовок ---------- */
+.ceremonial-sub{
+  font-family:'Times New Roman','Georgia',serif;
+  font-style:italic;font-size:1.2rem;
+  color:var(--gold-soft);
+  border-top:2px solid var(--gold-dark);border-bottom:2px solid var(--gold-dark);
+  padding:.7rem 2.2rem;margin:.4rem 0 1rem;
+  letter-spacing:.32em;text-transform:uppercase;
+  background:rgba(13,27,42,.5);
+}
 
-@keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:none;}}
+/* ---------- вводный текст ---------- */
+.intro-text{
+  font-size:1.15rem;font-weight:500;max-width:680px;
+  color:var(--parchment);line-height:1.5;letter-spacing:.02em;
+}
+
+/* ---------- декрет ---------- */
+.decree{
+  font-size:1.3rem;font-weight:700;
+  color:var(--gold-soft);letter-spacing:.18em;text-transform:uppercase;
+  background:rgba(6,18,31,.7);
+  padding:.7rem 1.8rem;margin:1.4rem 0 .6rem;
+  border-left:6px solid var(--gold);border-right:6px solid var(--gold);
+}
+
+/* ============================================================
+   СВЯЩЕННАЯ ИНСТАЛЛЯЦИЯ — капибары на пуфах, соболь на страже
+   ============================================================ */
+.installation{
+  position:relative;width:100%;max-width:640px;height:280px;
+  margin:2rem 0 2.2rem;
+}
+.installation-label,.installation-plaque{
+  position:absolute;left:50%;transform:translateX(-50%);
+  color:var(--gold);font-size:.72rem;font-weight:800;
+  letter-spacing:.32em;text-transform:uppercase;
+  padding:.25rem 1.2rem;border:1px solid var(--gold-dark);
+  white-space:nowrap;z-index:5;
+  background:rgba(13,27,42,.8);text-shadow:1px 1px 2px #000;
+}
+.installation-label{top:-14px;}
+.installation-plaque{bottom:-26px;font-size:.68rem;
+  color:#d4bd7a;background:var(--panel);}
+
+/* пол */
+.floor{
+  position:absolute;bottom:0;left:0;width:100%;height:35%;
+  border-top:2px solid var(--gold-dark);
+  background:linear-gradient(180deg,transparent,rgba(184,134,11,.04));
+}
+
+/* общая обёртка для всех мебельных слотов */
+.sofa,.pouf,.capybara,.capybara-on-sofa,.sable-guard{
+  position:absolute;
+  display:flex;align-items:center;justify-content:center;
+}
+.sofa img,.pouf img,.capybara img,.capybara-on-sofa img,.sable-guard img{
+  width:100%;height:100%;object-fit:contain;display:block;
+}
+/* плашка-заглушка, если картинка не загрузится */
+.sofa::before,.pouf::before,.capybara::before,
+.capybara-on-sofa::before,.sable-guard::before{
+  content:attr(data-label);
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  z-index:-1;
+}
+
+/* диван — по центру */
+.sofa{
+  bottom:25px;left:50%;transform:translateX(-50%);
+  width:260px;height:130px;z-index:2;
+}
+.capybara-on-sofa{
+  bottom:100px;left:50%;transform:translateX(-50%);
+  width:80px;height:80px;z-index:4;
+}
+
+/* левый и правый пуфы */
+.pouf-left {bottom:30px;left:8%;  width:110px;height:100px;z-index:2;}
+.pouf-right{bottom:30px;right:8%; width:110px;height:100px;z-index:2;}
+.capybara-on-pouf-left {bottom:75px;left:7%;  width:70px;height:70px;z-index:4;}
+.capybara-on-pouf-right{bottom:75px;right:7%; width:70px;height:70px;z-index:4;}
+
+/* соболь-страж */
+.sable-guard{
+  bottom:35px;left:30%;transform:translateX(-50%);
+  width:65px;height:65px;z-index:5;
+}
+
+/* ---------- остальной церемониальный текст ---------- */
+.serious-tag{
+  font-size:1.25rem;font-weight:800;color:var(--gold);
+  margin:1rem 0 .4rem;text-transform:uppercase;letter-spacing:.25em;
+}
+.description-text{
+  font-family:'Times New Roman','Georgia',serif;
+  font-style:italic;color:var(--parchment);max-width:680px;
+  line-height:1.7;margin:.4rem 0 1rem;font-size:1.04rem;
+}
+
+.final-statement{
+  font-size:1.7rem;font-weight:800;color:var(--gold);
+  margin-top:1.6rem;padding-bottom:.8rem;width:100%;
+  border-bottom:4px double var(--gold-dark);
+  letter-spacing:.3em;text-transform:uppercase;
+  text-shadow:0 0 20px rgba(0,0,0,.9);
+}
+
+.holy-mantra{
+  margin-top:1.6rem;font-size:1.45rem;font-weight:800;
+  color:var(--gold-soft);text-transform:uppercase;letter-spacing:.18em;
+  background:rgba(6,18,31,.6);padding:1.1rem 1.6rem;
+  border:2px solid var(--gold-dark);border-radius:6px;
+  width:100%;line-height:1.4;
+  text-shadow:3px 3px 0 #07121e;
+  box-shadow:inset 0 0 18px rgba(244,196,48,.08);
+}
+
+.coordinates{
+  margin-top:1.6rem;font-family:'Courier New',monospace;
+  font-size:1.05rem;color:var(--ice);
+  background:rgba(6,18,31,.7);padding:.7rem 1.6rem;
+  border:1px solid var(--panel2);border-radius:30px;
+  letter-spacing:.15em;
+}
+
+.warning{
+  margin-top:1.4rem;font-size:.88rem;color:var(--muted);font-style:italic;
+  border:1px dashed var(--panel2);padding:.7rem 1.6rem;
+  background:rgba(6,18,31,.4);border-radius:6px;line-height:1.5;
+}
 
 /* ---------- footer ---------- */
 footer{position:relative;z-index:2;text-align:center;color:var(--muted);
   padding:30px 16px 50px;font-size:.85rem;}
 
 /* ---------- mobile ---------- */
-@media(max-width:560px){
+@media (max-width:680px){
   header{padding:32px 14px 6px;}
   .stage{padding:18px 12px 50px;}
-  .about-block{padding:20px;}
-  .about-block h2{font-size:1.2rem;}
-  .team-grid{grid-template-columns:1fr;}
+  .manifest-card{padding:30px 18px 24px;border-radius:18px;}
+  .seal{width:80px;height:80px;font-size:2.6rem;}
+  .ceremonial-sub{font-size:.95rem;letter-spacing:.2em;padding:.5rem 1.4rem;}
+  .intro-text{font-size:1.02rem;}
+  .decree{font-size:1.05rem;letter-spacing:.1em;padding:.6rem 1rem;
+    border-left-width:4px;border-right-width:4px;}
+  .installation{height:240px;}
+  .sofa{width:200px;height:100px;bottom:20px;}
+  .capybara-on-sofa{width:60px;height:60px;bottom:75px;}
+  .pouf-left,.pouf-right{width:85px;height:75px;bottom:25px;}
+  .capybara-on-pouf-left,.capybara-on-pouf-right{
+    width:55px;height:55px;bottom:60px;}
+  .sable-guard{width:50px;height:50px;bottom:28px;left:28%;}
+  .holy-mantra{font-size:1.1rem;letter-spacing:.1em;padding:.9rem 1rem;}
+  .final-statement{font-size:1.3rem;letter-spacing:.15em;}
+  .coordinates{font-size:.92rem;letter-spacing:.1em;}
 }

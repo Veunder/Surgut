@@ -36,6 +36,13 @@ document.getElementById('cPrev').addEventListener('click',()=>{
 document.getElementById('cNext').addEventListener('click',()=>{
   carousel.scrollBy({left:step(),behavior:'smooth'});
 });
+document.querySelectorAll('.place').forEach(p => {
+  const src = p.dataset.img;
+  if (!src) return;
+  const circle = p.querySelector('.circle');
+  circle.innerHTML = `<img src="${src}" alt="${p.dataset.title}" 
+    onerror="this.parentNode.innerHTML='${circle.textContent.replace(/'/g,"\\'")}'">`;
+});
 
 /* ---------- выбор места из карусели → секция "о месте" ---------- */
 const aboutPanel=document.getElementById('aboutPanel');
@@ -49,7 +56,10 @@ function showPlace(p){
   const text=p.dataset.text||'Lorem ipsum.';
   aboutTitle.textContent=title;
   aboutBody.textContent=text;
-  aboutPhoto.textContent='Фото: '+title;
+  aboutPhoto.innerHTML = p.dataset.img
+  ? `<img src="${p.dataset.img}" alt="${title}" 
+       style="width:100%;height:100%;object-fit:cover;display:block;border-radius:12px;">`
+  : 'Фото: ' + title;
   /* подсветка активного кружочка */
   places.forEach(x=>x.classList.remove('active'));
   p.classList.add('active');

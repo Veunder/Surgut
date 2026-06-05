@@ -67,7 +67,7 @@ body{
   animation:fadeUp .8s ease both;
 }
 /* герб .gif plug */
-.gerb-plug{
+.gerb{
   width:130px;height:130px;border-radius:50%;
   background:repeating-linear-gradient(45deg,var(--plug),var(--plug) 10px,var(--plug-dark) 10px,var(--plug-dark) 20px);
   display:flex;align-items:center;justify-content:center;
@@ -143,6 +143,14 @@ body{
 .node:hover .event{opacity:1;}
 .node .event b{color:var(--gold);display:block;margin-bottom:4px;}
 
+.place .circle img{
+  width:100%;height:100%;
+  object-fit:cover;
+  border-radius:50%;
+  display:block;
+}
+.place .circle{padding:0;overflow:hidden;}
+
 /* ---------- places carousel ---------- */
 .carousel-wrap{position:relative;max-width:1000px;margin:0 auto;}
 .carousel{
@@ -162,6 +170,18 @@ body{
   color:#555;font-size:.78rem;font-weight:700;
   transition:transform .25s,border-color .25s,box-shadow .25s;
 }
+
+.timeline .dot{
+  padding:0;
+  overflow:hidden;
+}
+.timeline .dot img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
 .place:hover .circle{transform:translateY(-8px) scale(1.05);
   border-color:var(--gold);box-shadow:0 0 22px rgba(244,196,48,.45);}
 .place.active .circle{

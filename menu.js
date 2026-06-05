@@ -8,7 +8,10 @@
   const pathLower = window.location.pathname.toLowerCase();
   /* если страница лежит в /Slots/ — нужно подняться на уровень выше */
   const inSlots = pathLower.includes('/slots/');
-  const prefix = inSlots ? '../' : '';
+  const inMaps = pathLower.includes('/maps/');
+  const inFame = pathLower.includes('/fame/');
+  const inAbout = pathLower.includes('/about/');
+  const prefix = inSlots || inMaps || inFame || inAbout ? '../' : '';
 
   /* пункты меню — БЕЗ ссылки на лендинг (туда возвращаемся по клику на «СУРГУТ») */
   const items = [
